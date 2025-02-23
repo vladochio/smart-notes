@@ -69,3 +69,12 @@ def show_note():
 list_notes.itemClicked.connect(show_note)
 window.show()
 app.exec_()
+
+
+
+
+
+
+
+
+
