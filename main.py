@@ -67,14 +67,35 @@ def show_note():
     print(notes[key])
 
 list_notes.itemClicked.connect(show_note)
+
+def create_note_func():
+    note_name, ok = QInputDialog.getText(window, 
+                        "Створення замітки",
+                        "Назва замітку")
+    if ok == True:
+        notes[note_name] = {
+            "текст": "купити пельмені ",
+            "теги": [1111]
+        }
+        list_notes.clear()
+        list_notes.addItems(notes)
+        write_in_file(notes)
+
+def delete_note_func():
+    key = list_notes.currentItem().text()
+    notes.pop(key)
+    list_notes.clear()
+    list_notes.addItems(notes)
+    write_in_file(notes)
+
+button_note_create.clicked.connect(create_note_func)
+
+
+def save_note_func():
+    (button_note_save)
+    list_notes.itemClicked.connect(show_note)
+
+button_note_create.clicked.connect(button_note_save)
+
 window.show()
 app.exec_()
-
-
-
-
-
-
-
-
-
