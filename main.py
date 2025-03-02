@@ -90,12 +90,29 @@ def delete_note_func():
 
 button_note_create.clicked.connect(create_note_func)
 
-
 def save_note_func():
     (button_note_save)
     list_notes.itemClicked.connect(show_note)
+    button_note_create.clicked.connect(button_note_save)
 
-button_note_create.clicked.connect(button_note_save)
+def add_tag():
+    key = list_notes.currentItem().text()
+    notes.pop(key)
+    notes[key]["текст"] = field_text.toPlainText()
+    list_notes.addItems(notes)
+    write_in_file(notes)
+
+def delete_tags():
+    key_note = list_notes.currentItem().text()
+    tag = list_tags.currentItem().text()
+    notes[key_note]["теги"].remove(tag)
+    list_notes.clear()
+    list_notes.addItems(notes)
+    write_in_file(notes)
+
+button_tag_add.clicked.connect(add_tag)
+button_note_create.clicked.connect(create_note_func)
+list_notes.itemClicked.connect(show_note)
 
 window.show()
 app.exec_()
