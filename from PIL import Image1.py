@@ -5,3 +5,5 @@ with Image.open('зображення.jpg')as pic_original:
     contour = pic_original.filter(ImageFilter.CONTOUR)
     contour.save('countour.png')
     contour.show()
+
+    
