@@ -5,3 +5,4 @@ with Image.open('зображення.jpg')as pic_original:
     print('Формат:', pic_original.format)
     print('Режим:', pic_original.mode)
     pic_original.show()
+    
