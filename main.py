@@ -115,4 +115,4 @@ button_note_create.clicked.connect(create_note_func)
 list_notes.itemClicked.connect(show_note)
 
 window.show()
-app.exec_()
+app.exec()
